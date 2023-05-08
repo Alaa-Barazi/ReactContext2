@@ -5,17 +5,15 @@ import DarkPage from "../DarkPage/DarkPage";
 import './style.css';
 export default function Navbar(){
     const {mode,setMode} = useContext(ModeContext);
-    const [bgcolor,setBgcolor] = useState("white");
+    const [bgcolor,setBgcolor] = useState("black");
     const handleClick=()=>{
-        if(mode === "Dark"){
-            setMode("Light")
+        if(mode === "Light"){
+            setMode("Dark")
             setBgcolor("white")
-            
-           
         }
         else{
-            setBgcolor("black")
-            setMode("Dark")
+          setMode("Light")
+        setBgcolor("black")
         }
     }
     
@@ -28,8 +26,10 @@ export default function Navbar(){
   <a href="#about">About</a>
   <button onClick={()=>handleClick()} style={{float:"right"}}> {mode} </button>
 
-</div>   
-{mode==="Light"?<LightPage/> : <DarkPage/>}
+</div>   {
+
+}
+{mode==="Dark" ?<LightPage/> : <DarkPage/>}
         </>
     )
 }
